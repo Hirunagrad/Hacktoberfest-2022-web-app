@@ -69,16 +69,3 @@ router.put('/guide/update/:id',(req,res)=>{
     );
 });
 
-//delete guide
-
-router.delete('/guide/delete/:id',(req,res)=>{
-    Guide.findByIdAndRemove(req.params.id).exec((err,deleteGuide)=>{
-        if (err) return res.status(400).json({
-            message:"Delete unsuccesful",err
-        });
-        return res.json({
-            message:"Delete Successful",deleteGuide
-        });
-
-    });
-});
