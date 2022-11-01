@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 const jwt = require('jsonwebtoken');
@@ -16,6 +17,8 @@ const posts = [
     title: 'Post 2',
   },
 ];
+
+app.use(cors())
 
 // GET /posts
 app.get('/posts', authenicateToken, (req, res) => {
